@@ -48,38 +48,40 @@
     <title>php hotel</title>
 </head>
 <body>
-    
-    <form action="" method="GET">
-        <select name="info" id="">
-            <option value="">all</option>
-            <option value="parking">parking</option>
-        </select>
-        <button>cerca</button>
-    </form>
-    
-    <div class="container">
-    <?php 
-        $filter = $_GET['info'] == 'parking';
+    <main>
+        <form action="" method="GET">
+            <select name="info" id="">
+                <option value="">all</option>
+                <option value="parking">parking</option>
+            </select>
+            <button>cerca</button>
+        </form>
+        
+        <h1>PHP Hotels</h1>
+        <div class="container">
+        <?php 
+            $filter = $_GET['info'] == 'parking';
 
-        foreach ($hotels as $key => $hotel) {
-            if ($filter && !$hotel['parking']) {
-                continue;
+            foreach ($hotels as $key => $hotel) {
+                if ($filter && !$hotel['parking']) {
+                    continue;
+                }
+
+                echo '<div>';
+                    foreach($hotel as $index => $info) {
+                        echo '<h2>';
+                        echo $index.': ';
+                        echo '</h2>';
+
+                        echo '<p>';
+                        echo $info;
+                        echo '</p>';
+                    }
+                echo '</div>';
             }
-
-            echo '<div>';
-            foreach($hotel as $index => $info) {
-                echo '<h2>';
-                echo $index.': ';
-                echo '</h2>';
-
-                echo '<p>';
-                echo $info;
-                echo '</p>';
-            }
-            echo '</div>';
-        }
-?>
-    </div>
+        ?>
+        </div>
+    </main>
 </body>
 
 <style>
@@ -88,8 +90,12 @@
         padding: 0;
         box-sizing: border-box;
     }
+    h1{
+        text-align: center;
+    }
     .container{
         display: flex;
+        justify-content: center;
         width: 90%;
         margin: 0 auto;
     }
@@ -102,7 +108,8 @@
     .container > div{
         border: 1px solid black;
         padding: 10px;
-        margin: 20px 10px;
+        margin: 30px 10px;
+        border-radius: 10px;
     }
 
 </style>
