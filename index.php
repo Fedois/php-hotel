@@ -48,6 +48,15 @@
     <title>php hotel</title>
 </head>
 <body>
+    
+    <form action="" method="GET">
+        <select name="info" id="">
+            <option value="all">all</option>
+            <option value="parking">parking</option>
+        </select>
+        <button>cerca</button>
+    </form>
+    
     <div class="container">
     <?php 
         foreach ($hotels as $key => $hotel) {
