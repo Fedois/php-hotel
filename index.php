@@ -59,20 +59,26 @@
     
     <div class="container">
     <?php 
-        foreach ($hotels as $key => $hotel) {
-            echo '<div>';
-                foreach($hotel as $index => $info) {
-                    echo '<h2>';
-                    echo $index.': ';
-                    echo '</h2>';
+        $filter = isset($_GET['info']) && $_GET['info'] == 'parking';
 
-                    echo '<p>';
-                    echo $info;
-                    echo '</p>';
-                }
+        foreach ($hotels as $key => $hotel) {
+            if ($filter && !$hotel['parking']) {
+                continue;
+            }
+
+            echo '<div>';
+            foreach($hotel as $index => $info) {
+                echo '<h2>';
+                echo $index.': ';
+                echo '</h2>';
+
+                echo '<p>';
+                echo $info;
+                echo '</p>';
+            }
             echo '</div>';
         }
-    ?>
+?>
     </div>
 </body>
 
