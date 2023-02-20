@@ -51,7 +51,7 @@
     
     <form action="" method="GET">
         <select name="info" id="">
-            <option value="all">all</option>
+            <option value="">all</option>
             <option value="parking">parking</option>
         </select>
         <button>cerca</button>
@@ -59,7 +59,7 @@
     
     <div class="container">
     <?php 
-        $filter = isset($_GET['info']) && $_GET['info'] == 'parking';
+        $filter = $_GET['info'] == 'parking';
 
         foreach ($hotels as $key => $hotel) {
             if ($filter && !$hotel['parking']) {
@@ -90,9 +90,11 @@
     }
     .container{
         display: flex;
-        justify-content: space-between;
         width: 90%;
         margin: 0 auto;
+    }
+    form{
+        margin: 30px 30px;
     }
     p{
         margin-bottom: 5px;
@@ -100,7 +102,7 @@
     .container > div{
         border: 1px solid black;
         padding: 10px;
-        margin-top: 20px;
+        margin: 20px 10px;
     }
 
 </style>
