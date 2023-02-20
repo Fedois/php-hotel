@@ -48,16 +48,44 @@
     <title>php hotel</title>
 </head>
 <body>
+    <div class="container">
     <?php 
-       echo '<ul>';
         foreach ($hotels as $key => $hotel) {
-            foreach($hotel as $index => $info) {
-                echo '<li>';
-                echo $index.': '.$info;
-                echo '</li>';
-            }
+            echo '<div>';
+                foreach($hotel as $index => $info) {
+                    echo '<h2>';
+                    echo $index.': ';
+                    echo '</h2>';
+
+                    echo '<p>';
+                    echo $info;
+                    echo '</p>';
+                }
+            echo '</div>';
         }
-       echo '</ul>';
     ?>
+    </div>
 </body>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+    }
+    p{
+        margin-bottom: 5px;
+    }
+    .container > div{
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+</style>
 </html>
